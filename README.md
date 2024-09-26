@@ -6,11 +6,7 @@
 <a href="https://github.com/frzyc/genshin-optimizer"><img alt="Github-last-commit" src="https://img.shields.io/github/last-commit/frzyc/genshin-optimizer?logo=github&style=for-the-badge"></a>
 <a href="https://github.com/frzyc/genshin-optimizer/blob/master/LICENSE"><img alt="GitHub-license" src="https://img.shields.io/github/license/frzyc/genshin-optimizer?style=for-the-badge"></a>
 
-<<<<<<< HEAD
 [Zenless Optimizer](#) is a helper website for the online action-rpg gacha game [Zenless Zone Zero](https://zenless.hoyoverse.com/). It is intended to assist players with optimizing artifacts to max-min their characters, while providing a clean, structured UI, and provide real-time results.
-=======
-[Genshin Optimizer](https://frzyc.github.io/genshin-optimizer) is a helper website for the online action-rpg gacha game [Genshin Impact](https://genshin.mihoyo.com/). It is intended to assist players with optimizing artifacts to max-min their characters, while providing a clean, structured UI, and provide real-time results.
->>>>>>> parent of 32fe920dc (remove genshin and starrail things)
 
 # WE NEED HELP!
 
