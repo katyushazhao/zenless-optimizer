@@ -4,7 +4,7 @@
 <a href="https://github.com/katyushazhao/zenless-optimizer"><img alt="Github-last-commit" src="https://img.shields.io/github/last-commit/katyushazhao/zenless-optimizer?logo=github&style=for-the-badge"></a>
 <a href="https://github.com/katyushazhao/zenless-optimizer/blob/master/LICENSE"><img alt="GitHub-license" src="https://img.shields.io/github/license/katyushazhao/zenless-optimizer?style=for-the-badge"></a>
 
-[Zenless Optimizer](#) is a helper website for the online action-rpg gacha game [Zenless Zone Zero](https://zenless.mihoyo.com/). It is intended to assist players with optimizing artifacts to max-min their characters, while providing a clean, structured UI, and provide real-time results.
+[Zenless Optimizer](#) is a helper website for the online action-rpg gacha game [Zenless Zone Zero](https://zenless.hoyoverse.com/). It is intended to assist players with optimizing artifacts to max-min their characters, while providing a clean, structured UI, and provide real-time results.
 
 ## Zenless Optimizer Roadmap
 
