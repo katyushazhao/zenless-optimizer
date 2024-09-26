@@ -1,8 +1,0 @@
-{
-  "name": "gi-keymap",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/gi/keymap/src",
-  "projectType": "library",
-  "tags": [],
-  "targets": {}
-}
