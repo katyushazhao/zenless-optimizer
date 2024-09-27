@@ -1,0 +1,626 @@
+{
+  "wEngines": {
+    "RiotSuppressorMarkVI": {
+      "icon": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/05/28/ea6e21561ddb1c48023bae5cfbee674d_1735414023453250545.png",
+      "cover": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/05/28/ea6e21561ddb1c48023bae5cfbee674d_1735414023453250545.png"
+    },
+    "BashfulDemon": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "BigCylinder": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "BunnyBand": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "CannonRotor": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "DeepSeaVisitor": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "DemaraBatteryMarkII": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "DrillRigRedAxis": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "ElectroLipGloss": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "FusionCompiler": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "GildedBlossom": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "HellfireGears": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "Housekeeper": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "IceJadeTeapot": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "KaboomTheCannon": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "LunarDecrescent": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "LunarNoviluna": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "LunarPleniluna": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "MagneticStormAlpha": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "MagneticStormBravo": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "MagneticStormCharlie": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "OriginalTransmorpher": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "PeacekeeperSpecialized": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "PreciousFossilizedCore": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "RainforestGourmet": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "ReverbMarkI": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "ReverbMarkII": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "ReverbMarkIII": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "RoaringRide": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SharpenedStinger": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SixShooter": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SliceOfTime": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SpringEmbrace": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "StarlightEngine": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "StarlightEngineReplica": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SteamOven": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SteelCushion": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "StreetSuperstar": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "TheBrimstone": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "TheRestrained": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "TheVault": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "TusksOfFury": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "UnfetteredGameBall": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "VortexArrow": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "VortexHatchet": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "VortexRevolver": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "WeepingCradle": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "WeepingGemini": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "cover": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    }
+  },
+  "agents": {
+    "ZhuYuan": {
+      "icon": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/05/28/97da9558378b311eb40e733074a41830_5403854964936555699.png",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "AlexandrinaSebastiane": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "AnbyDemara": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "AntonIvanov": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "BenBigger": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "BillyKid": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "CaesarKing": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "CorinWickes": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "EllenJoe": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "GraceHoward": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "HoshimiMiyabi": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "JaneDoe": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "KoledaBelobog": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "LucianaDeMontefio": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "NekomiyaMana": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "NicoleDemara": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "PiperWheel": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "Qingyi": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "SethLowell": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "Soldier11": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "Soukaku": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    },
+    "VonLycaon": {
+      "icon": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "basic": [],
+      "dodge": [],
+      "assist": [],
+      "special": [],
+      "chain": [],
+      "core": [],
+      "mindscape1": "",
+      "mindscape2": "",
+      "mindscape3": "",
+      "mindscape4": "",
+      "mindscape5": "",
+      "mindscape6": ""
+    }
+  },
+  "driveDiscs": {
+    "ChaoticMetal": {
+      "1": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/d24db7eae8c2561bc49a1d72b9259364_3628772142390484587.png",
+      "2": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/d24db7eae8c2561bc49a1d72b9259364_3628772142390484587.png",
+      "3": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/d24db7eae8c2561bc49a1d72b9259364_3628772142390484587.png",
+      "4": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/d24db7eae8c2561bc49a1d72b9259364_3628772142390484587.png",
+      "5": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/d24db7eae8c2561bc49a1d72b9259364_3628772142390484587.png",
+      "6": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/d24db7eae8c2561bc49a1d72b9259364_3628772142390484587.png"
+    },
+    "FangedMetal": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "FreedomBlues": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "HormonePunk": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "InfernoMetal": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "PolarMetal": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "PufferElectro": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "ShockstarDisco": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SoulRock": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "SwingJazz": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "ThunderMetal": {
+      "1": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "2": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "3": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "4": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "5": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg",
+      "6": "https://cdn.discordapp.com/attachments/1251823859305287772/1289218173866086420/images-1.jpg"
+    },
+    "WoodpeckerElectro": {
+      "1": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/0d4dd047370168a3b992d9884ca926c6_8904461176918742696.png",
+      "2": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/0d4dd047370168a3b992d9884ca926c6_8904461176918742696.png",
+      "3": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/0d4dd047370168a3b992d9884ca926c6_8904461176918742696.png",
+      "4": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/0d4dd047370168a3b992d9884ca926c6_8904461176918742696.png",
+      "5": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/0d4dd047370168a3b992d9884ca926c6_8904461176918742696.png",
+      "6": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/09/0d4dd047370168a3b992d9884ca926c6_8904461176918742696.png"
+    }
+  }
+}
