@@ -74,6 +74,8 @@ The dependencies to the apps are in [/libs](/libs/)
 
 [sr-srod](/libs/sr/srod/) - Interface for the Star Rail Object Description (SROD). An import format for Star Rail scanners.
 
+[zzz-zzzod](/libs/zzz/zzzod/) - Interface for the ZZZ Object Description (ZZZOD). An import format for ZZZ scanners.
+
 [pando](/libs/pando/engine/) - The new Optimizer calculation engine.
 
 [gi-formula](/libs/gi/formula/) - The Genshin implementation of Pando.
