@@ -1,0 +1,9 @@
+{
+  "name": "zzz-stats",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/zzz/stats/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project zzz-stats --web",
+  "targets": {}
+}
