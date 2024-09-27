@@ -1,0 +1,10 @@
+{
+  "name": "zzz-frontend-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/zzz-frontend-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["zzz-frontend"],
+  "// targets": "to see all targets run: nx show project zzz-frontend-e2e --web",
+  "targets": {}
+}

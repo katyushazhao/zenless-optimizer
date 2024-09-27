@@ -66,6 +66,8 @@ The dependencies to the apps are in [/libs](/libs/)
 
 [`somnia-bot`](/apps/somnia/) - WIP discord bot - built using discord.js, using the Pando Calculation engine.
 
+[`zzz-frontend`](/apps/zzz-frontend/) - WIP ZZZO(name pending) frontend - static website built using React with Vite, using the Pando calculation engine.
+
 ### Notable Libs
 
 [gi-good](/libs/gi/good/) - Interface for the Genshin Open Object Description (GOOD). An import format for Genshin scanners.
