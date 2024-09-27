@@ -6,15 +6,16 @@ import type {
 } from '@genshin-optimizer/zzz/consts'
 import agents from './gen/agents'
 import wEngines from './gen/wEngines'
-import drivediscs from './gen/drivediscs'
+import driveDiscs from './gen/driveDiscs'
+
 type agentAssetKey =
   | 'icon'
-  | 'basic'
-  | 'dodge'
-  | 'assist'
-  | 'special'
-  | 'chain'
-  | 'core'
+  | 'basic1'
+  | 'dodge1'
+  | 'assist1'
+  | 'special1'
+  | 'chain1'
+  | 'core1'
   | 'mindscape1'
   | 'mindscape2'
   | 'mindscape3'
@@ -25,13 +26,14 @@ type agentAssetKey =
 export function agentAsset(ck: AgentKey, asset: agentAssetKey) {
   return agents[ck][asset]
 }
+
 type WEngineAssetKey = 'icon' | 'cover'
 export function wEngineAsset(lck: WEngineKey, asset: WEngineAssetKey) {
   return wEngines[lck][asset]
 }
 
-export function drivediscAsset(rk: DriveDiscSeriesKey, partitionKey: DriveDiscPartitionKey) {
-  const drivedisc = drivediscs[rk]
+export function driveDiscAsset(rk: DriveDiscSeriesKey, partitionKey: DriveDiscPartitionKey) {
+  const driveDisc = driveDiscs[rk]
 
-  return drivedisc[partitionKey as keyof typeof drivedisc]
+  return driveDisc[partitionKey as keyof typeof driveDisc]
 }
