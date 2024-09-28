@@ -150,7 +150,13 @@
       "@genshin-optimizer/sr/svgicons": ["libs/sr/svgicons/src/index.ts"],
       "@genshin-optimizer/sr/theme": ["libs/sr/theme/src/index.ts"],
       "@genshin-optimizer/sr/ui": ["libs/sr/ui/src/index.tsx"],
-      "@genshin-optimizer/sr/util": ["libs/sr/util/src/index.ts"]
+      "@genshin-optimizer/sr/util": ["libs/sr/util/src/index.ts"],
+      "@genshin-optimizer/zzz/assets": ["libs/zzz/assets/src/index.ts"],
+      "@genshin-optimizer/zzz/assets-data": [
+        "libs/zzz/assets-data/src/index.ts"
+      ],
+      "@genshin-optimizer/zzz/consts": ["libs/zzz/consts/src/index.ts"],
+      "@genshin-optimizer/zzz/zzzod": ["libs/zzz/zzzod/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
