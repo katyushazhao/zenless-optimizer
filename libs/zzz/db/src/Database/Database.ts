@@ -1,48 +1,47 @@
 import type { DBStorage } from '@genshin-optimizer/common/database'
 import { Database, SandboxStorage } from '@genshin-optimizer/common/database'
-import type { GenderKey } from '@genshin-optimizer/sr/consts'
-import type { ISrObjectDescription } from '@genshin-optimizer/sr/srod'
-import type { ISroDatabase } from '../Interfaces'
-import { SroSource } from '../Interfaces'
+import type { IZZZObjectDescription } from '@genshin-optimizer/zzz/zzzod'
+import type { IZZZoDatabase } from '../Interfaces'
+import { ZZZoSource } from '../Interfaces'
 import { DBMetaEntry } from './DataEntries/DBMetaEntry'
-import { DisplayCharacterEntry } from './DataEntries/DisplayCharacterEntry'
-import { DisplayLightConeEntry } from './DataEntries/DisplayLightConeEntry'
-import { DisplayRelicEntry } from './DataEntries/DisplayRelicEntry'
+import { DisplayAgentEntry } from './DataEntries/DisplayAgentEntry'
+import { DisplayWEngineEntry } from './DataEntries/DisplayWEngineEntry'
+import { DisplayDriveDiscEntry } from './DataEntries/DisplayDriveDiscEntry'
 import { BuildDataManager } from './DataManagers/BuildDataManager'
 import { BuildTcDataManager } from './DataManagers/BuildTcDataManager'
-import { CharMetaDataManager } from './DataManagers/CharMetaDataManager'
-import { CharacterDataManager } from './DataManagers/CharacterDataManager'
-import { LightConeDataManager } from './DataManagers/LightConeDataManager'
+import { AgentMetaDataManager } from './DataManagers/AgentMetaDataManager'
+import { AgentDataManager } from './DataManagers/AgentDataManager'
+import { WEngineDataManager } from './DataManagers/WEngineDataManager'
 import { LoadoutDataManager } from './DataManagers/LoadoutDataManager'
 import { OptConfigDataManager } from './DataManagers/OptConfigDataManager'
-import { RelicDataManager } from './DataManagers/RelicDataManager'
+import { DriveDiscDataManager } from './DataManagers/DriveDiscDataManager'
 import { TeamDataManager } from './DataManagers/TeamDataManager'
 import type { ImportResult } from './exim'
 import { newImportResult } from './exim'
 import {
   currentDBVersion,
-  migrateSr as migrateSROD,
+  migrateZZZ as migrateZZZOD,
   migrateStorage,
 } from './migrate'
-export class SroDatabase extends Database {
-  relics: RelicDataManager
-  chars: CharacterDataManager
+export class ZZZoDatabase extends Database {
+  driveDiscs: DriveDiscDataManager
+  agents: AgentDataManager
   buildTcs: BuildTcDataManager
-  lightCones: LightConeDataManager
+  wEngines: WEngineDataManager
   optConfigs: OptConfigDataManager
-  charMeta: CharMetaDataManager
+  agentMeta: AgentMetaDataManager
   builds: BuildDataManager
   loadouts: LoadoutDataManager
   teams: TeamDataManager
 
   dbMeta: DBMetaEntry
-  displayCharacter: DisplayCharacterEntry
-  displayLightCone: DisplayLightConeEntry
-  displayRelic: DisplayRelicEntry
+  displayAgent: DisplayAgentEntry
+  displayWEngine: DisplayWEngineEntry
+  displayDriveDisc: DisplayDriveDiscEntry
   dbIndex: 1 | 2 | 3 | 4
   dbVer: number
 
-  keyPrefix = 'sro'
+  keyPrefix = 'zzzo'
 
   constructor(dbIndex: 1 | 2 | 3 | 4, storage: DBStorage) {
     super(storage)
@@ -54,19 +53,19 @@ export class SroDatabase extends Database {
     this.storage.setDBIndex(this.dbIndex)
 
     // Handle Datamanagers
-    this.chars = new CharacterDataManager(this)
+    this.agents = new AgentDataManager(this)
 
-    // Light cones needs to be instantiated after character to check for relations
-    this.lightCones = new LightConeDataManager(this)
+    // Light cones needs to be instantiated after agent to check for relations
+    this.wEngines = new WEngineDataManager(this)
 
-    // Relics needs to be instantiated after character to check for relations
-    this.relics = new RelicDataManager(this)
+    // DriveDiscs needs to be instantiated after agent to check for relations
+    this.driveDiscs = new DriveDiscDataManager(this)
 
-    // Depends on relics
+    // Depends on driveDiscs
     this.optConfigs = new OptConfigDataManager(this)
 
     this.buildTcs = new BuildTcDataManager(this)
-    this.charMeta = new CharMetaDataManager(this)
+    this.agentMeta = new AgentMetaDataManager(this)
 
     this.builds = new BuildDataManager(this)
 
@@ -78,29 +77,29 @@ export class SroDatabase extends Database {
 
     // Handle DataEntries
     this.dbMeta = new DBMetaEntry(this)
-    this.displayCharacter = new DisplayCharacterEntry(this)
-    this.displayLightCone = new DisplayLightConeEntry(this)
-    this.displayRelic = new DisplayRelicEntry(this)
+    this.displayAgent = new DisplayAgentEntry(this)
+    this.displayWEngine = new DisplayWEngineEntry(this)
+    this.displayDriveDisc = new DisplayDriveDiscEntry(this)
 
-    this.chars.followAny(() => {
+    this.agents.followAny(() => {
       this.dbMeta.set({ lastEdit: Date.now() })
     })
-    this.relics.followAny(() => {
+    this.driveDiscs.followAny(() => {
       this.dbMeta.set({ lastEdit: Date.now() })
     })
-    this.lightCones.followAny(() => {
+    this.wEngines.followAny(() => {
       this.dbMeta.set({ lastEdit: Date.now() })
     })
   }
   get dataManagers() {
-    // IMPORTANT: it must be chars, light cones, relics in order, to respect import order
+    // IMPORTANT: it must be agents, light cones, driveDiscs in order, to respect import order
     return [
-      this.chars,
-      this.lightCones,
-      this.relics,
+      this.agents,
+      this.wEngines,
+      this.driveDiscs,
       this.optConfigs,
       this.buildTcs,
-      this.charMeta,
+      this.agentMeta,
       this.builds,
       this.loadouts,
       this.teams,
@@ -109,9 +108,9 @@ export class SroDatabase extends Database {
   get dataEntries() {
     return [
       this.dbMeta,
-      this.displayCharacter,
-      this.displayLightCone,
-      this.displayRelic,
+      this.displayAgent,
+      this.displayWEngine,
+      this.displayDriveDisc,
     ] as const
   }
 
@@ -119,32 +118,28 @@ export class SroDatabase extends Database {
     this.dataManagers.map((dm) => dm.clear())
     this.dataEntries.map((de) => de.clear())
   }
-  get gender() {
-    const gender: GenderKey = this.dbMeta.get().gender ?? 'F'
-    return gender
-  }
-  exportSROD() {
-    const srod: Partial<ISroDatabase & ISrObjectDescription> = {
-      format: 'SROD',
+  exportZZZOD() {
+    const zzzod: Partial<IZZZoDatabase & IZZZObjectDescription> = {
+      format: 'ZZZOD',
       dbVersion: currentDBVersion,
-      source: SroSource,
+      source: ZZZoSource,
       version: 1,
     }
-    this.dataManagers.map((dm) => dm.exportSROD(srod))
-    this.dataEntries.map((de) => de.exportSROD(srod))
-    return srod as ISroDatabase & ISrObjectDescription
+    this.dataManagers.map((dm) => dm.exportZZZOD(zzzod))
+    this.dataEntries.map((de) => de.exportZZZOD(zzzod))
+    return zzzod as IZZZoDatabase & IZZZObjectDescription
   }
-  importSROD(
-    srod: ISrObjectDescription & ISroDatabase,
+  importZZZOD(
+    zzzod: IZZZObjectDescription & IZZZoDatabase,
     keepNotInImport: boolean,
     ignoreDups: boolean
   ): ImportResult {
-    srod = migrateSROD(srod)
-    const source = srod.source ?? 'Unknown'
+    zzzod = migrateZZZOD(zzzod)
+    const source = zzzod.source ?? 'Unknown'
     // Some Scanners might carry their own id field, which would conflict with GO dup resolution.
-    if (source !== SroSource) {
-      srod.relics?.forEach((a) => delete (a as unknown as { id?: string }).id)
-      srod.lightCones?.forEach(
+    if (source !== ZZZoSource) {
+      zzzod.driveDiscs?.forEach((a) => delete (a as unknown as { id?: string }).id)
+      zzzod.wEngines?.forEach(
         (a) => delete (a as unknown as { id?: string }).id
       )
     }
@@ -154,24 +149,24 @@ export class SroDatabase extends Database {
       ignoreDups
     )
 
-    // Follow updates from char/relic/lightCone to gather import results
+    // Follow updates from agent/driveDisc/wEngine to gather import results
     const unfollows = [
-      this.chars.followAny((key, reason, value) => {
-        const arr = result.characters[reason]
+      this.agents.followAny((key, reason, value) => {
+        const arr = result.agents[reason]
         const ind = arr.findIndex((c) => c?.key === key)
         if (ind < 0) arr.push(value)
         else arr[ind] = value
       }),
-      this.relics.followAny((_key, reason, value) =>
-        result.relics[reason].push(value)
+      this.driveDiscs.followAny((_key, reason, value) =>
+        result.drivediscs[reason].push(value)
       ),
-      this.lightCones.followAny((_key, reason, value) =>
-        result.lightCones[reason].push(value)
+      this.wEngines.followAny((_key, reason, value) =>
+        result.wEngines[reason].push(value)
       ),
     ]
 
-    this.dataManagers.map((dm) => dm.importSROD(srod, result))
-    this.dataEntries.map((de) => de.importSROD(srod, result))
+    this.dataManagers.map((dm) => dm.importZZZOD(zzzod, result))
+    this.dataEntries.map((de) => de.importZZZOD(zzzod, result))
     unfollows.forEach((f) => f())
 
     return result
@@ -186,7 +181,7 @@ export class SroDatabase extends Database {
     this.storage.setDBVersion(this.dbVer)
     this.storage.setDBIndex(this.dbIndex)
   }
-  swapStorage(other: SroDatabase) {
+  swapStorage(other: ZZZoDatabase) {
     this.clearStorage()
     other.clearStorage()
 
@@ -198,8 +193,8 @@ export class SroDatabase extends Database {
     other.saveStorage()
   }
   toExtraLocalDB() {
-    const key = `sro_extraDatabase_${this.storage.getDBIndex()}`
-    const other = new SandboxStorage(undefined, 'sro')
+    const key = `zzzo_extraDatabase_${this.storage.getDBIndex()}`
+    const other = new SandboxStorage(undefined, 'zzzo')
     const oldstorage = this.storage
     this.storage = other
     this.saveStorage()
