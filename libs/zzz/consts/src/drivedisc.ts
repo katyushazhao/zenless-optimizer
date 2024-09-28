@@ -74,7 +74,7 @@ export const driveDiscSubstatRollData: Record<
   B: { low: 1, high: 2, numUpgrades: 3 },
 } as const
 
-export const driveDiscSlotToMainStatKeys: Record<DriveDiscPartitionKey, DriveDiscMainStatKey[]> =
+export const driveDiscPartitionToMainStatKeys: Record<DriveDiscPartitionKey, DriveDiscMainStatKey[]> =
   {
     1: ['hp'],
     2: ['atk'],
