@@ -1,11 +1,11 @@
 import { useDatabaseTally } from '@genshin-optimizer/common/database-ui'
 import { Tally } from '@genshin-optimizer/common/ui'
-// import {
-//   CharacterIcon,
-//   LightConeIcon,
-//   RelicIcon,
-//   TeamsIcon,
-// } from '@genshin-optimizer/zzz/svgicons'
+import {
+  AgentIcon,
+  WEngineIcon,
+  DriveDiscIcon,
+  TeamsIcon,
+} from '@genshin-optimizer/zzz/svgicons'
 // import { useDatabaseContext } from '@genshin-optimizer/zzz/ui'
 import { Settings } from '@mui/icons-material'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -37,28 +37,28 @@ type ITab = {
   value: string
   textSuffix?: ReactNode
 }
-// const relics: ITab = {
-//   i18Key: 'tabs.relics',
-//   icon: <RelicIcon />,
-//   to: '/relics',
-//   value: 'relics',
-//   textSuffix: <RelicsTab key="relicsAdd" />,
+// const drivediscs: ITab = {
+//   i18Key: 'tabs.drivediscs',
+//   icon: <DriveDiscIcon />,
+//   to: '/drivediscs',
+//   value: 'drivediscs',
+//   textSuffix: <DriveDiscsTab key="drivediscsAdd" />,
 // }
 
-// const lightCones: ITab = {
-//   i18Key: 'tabs.lightcones',
-//   icon: <LightConeIcon />,
-//   to: '/lightcones',
-//   value: 'lightcones',
-//   textSuffix: <LightConesTab key="lightConeAdd" />,
+// const wEngines: ITab = {
+//   i18Key: 'tabs.wengines',
+//   icon: <WEngineIcon />,
+//   to: '/wengines',
+//   value: 'wengines',
+//   textSuffix: <WEnginesTab key="wEngineAdd" />,
 // }
 
-// const characters: ITab = {
-//   i18Key: 'tabs.characters',
-//   icon: <CharacterIcon />,
-//   to: '/characters',
-//   value: 'characters',
-//   textSuffix: <CharactersTab key="charAdd" />,
+// const agents: ITab = {
+//   i18Key: 'tabs.agents',
+//   icon: <AgentIcon />,
+//   to: '/agents',
+//   value: 'agents',
+//   textSuffix: <AgentsTab key="charAdd" />,
 // }
 
 // const teams: ITab = {
@@ -83,17 +83,17 @@ function SettingsChip() {
   return <Chip label={name} />
 }
 
-// function RelicsTab() {
+// function DriveDiscsTab() {
 //   const { database } = useDatabaseContext()
-//   return <Tally>{useDatabaseTally(database.relics)}</Tally>
+//   return <Tally>{useDatabaseTally(database.drivediscs)}</Tally>
 // }
 
-// function LightConesTab() {
+// function WEnginesTab() {
 //   const { database } = useDatabaseContext()
-//   return <Tally>{useDatabaseTally(database.lightCones)}</Tally>
+//   return <Tally>{useDatabaseTally(database.wEngines)}</Tally>
 // }
 
-// function CharactersTab() {
+// function AgentsTab() {
 //   const { database } = useDatabaseContext()
 //   return <Tally>{useDatabaseTally(database.chars)}</Tally>
 // }
@@ -111,7 +111,7 @@ export default function Header({ anchor }: { anchor: string }) {
   )
 }
 
-const maincontent = [settings] as const // [relics, lightCones, characters, teams, settings] as const
+const maincontent = [settings] as const // [drivediscs, wEngines, agents, teams, settings] as const
 
 function HeaderContent({ anchor }: { anchor: string }) {
   const theme = useTheme()
@@ -209,7 +209,7 @@ function DesktopHeader({
   )
 }
 
-const mobileContent = [settings] as const // [relics, lightCones, characters, teams, settings] as const
+const mobileContent = [settings] as const // [drivediscs, wEngines, agents, teams, settings] as const
 function MobileHeader({
   anchor,
   currentTab,
