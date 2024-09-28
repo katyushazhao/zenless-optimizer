@@ -1,135 +1,135 @@
-import type { CharacterKey } from '@genshin-optimizer/sr/consts'
+import type { AgentKey } from '@genshin-optimizer/zzz/consts'
 import {
-  allCharacterKeys,
-  allLightConeKeys,
-  lightConeMaxLevel,
-} from '@genshin-optimizer/sr/consts'
+  agentKeys,
+  allWEngineKeys,
+  wEngineMaxLevel,
+} from '@genshin-optimizer/zzz/consts'
 import type {
-  ILightCone,
-  ISrObjectDescription,
-} from '@genshin-optimizer/sr/srod'
-import { validateLevelAsc } from '@genshin-optimizer/sr/util'
+  IWEngine,
+  IZZZObjectDescription,
+} from '@genshin-optimizer/zzz/zzzod'
+import { validateLevelAsc } from '@genshin-optimizer/zzz/util'
 import type {
-  ICachedCharacter,
-  ICachedLightCone,
-  ISroDatabase,
+  ICachedAgent,
+  ICachedWEngine,
+  IZZZoDatabase,
 } from '../../Interfaces'
 import { DataManager } from '../DataManager'
-import type { SroDatabase } from '../Database'
+import type { ZZZoDatabase } from '../Database'
 import type { ImportResult } from '../exim'
-import { initialCharacter } from './AgentDataManager'
+import { initialAgent } from './AgentDataManager'
 
-export class LightConeDataManager extends DataManager<
+export class WEngineDataManager extends DataManager<
   string,
-  'lightCones',
-  ICachedLightCone,
-  ILightCone
+  'wEngines',
+  ICachedWEngine,
+  IWEngine
 > {
-  constructor(database: SroDatabase) {
-    super(database, 'lightCones')
+  constructor(database: ZZZoDatabase) {
+    super(database, 'wEngines')
   }
-  override validate(obj: unknown): ILightCone | undefined {
-    return validateLightCone(obj)
+  override validate(obj: unknown): IWEngine | undefined {
+    return validateWEngine(obj)
   }
   override toCache(
-    storageObj: ILightCone,
+    storageObj: IWEngine,
     id: string
-  ): ICachedLightCone | undefined {
-    const newLightCone = { ...storageObj, id }
-    const oldLightCone = super.get(id)
+  ): ICachedWEngine | undefined {
+    const newWEngine = { ...storageObj, id }
+    const oldWEngine = super.get(id)
 
-    // During initialization of the database, if you import lightCones with location without a corresponding character, the char will be generated here.
-    const getWithInit = (cKey: CharacterKey): ICachedCharacter => {
-      if (!this.database.chars.keys.includes(cKey))
-        this.database.chars.set(cKey, initialCharacter(cKey))
-      return this.database.chars.get(cKey) as ICachedCharacter
+    // During initialization of the database, if you import wEngines with location without a corresponding agent, the agent will be generated here.
+    const getWithInit = (cKey: AgentKey): ICachedAgent => {
+      if (!this.database.agents.keys.includes(cKey))
+        this.database.agents.set(cKey, initialAgent(cKey))
+      return this.database.agents.get(cKey) as ICachedAgent
     }
-    if (newLightCone.location !== oldLightCone?.location) {
-      const prevChar = oldLightCone?.location
-        ? getWithInit(oldLightCone.location)
+    if (newWEngine.location !== oldWEngine?.location) {
+      const prevAgent = oldWEngine?.location
+        ? getWithInit(oldWEngine.location)
         : undefined
-      const newChar = newLightCone.location
-        ? getWithInit(newLightCone.location)
+      const newAgent = newWEngine.location
+        ? getWithInit(newWEngine.location)
         : undefined
 
       // previously equipped light cone at new location
-      let prevLightCone = super.get(newChar?.equippedLightCone)
+      let prevWEngine = super.get(newAgent?.equippedWEngine)
 
-      //current prevLightCone <-> newChar  && newLightCone <-> prevChar
-      //swap to prevLightCone <-> prevChar && newLightCone <-> newChar(outside of this if)
+      //current prevWEngine <-> newAgent  && newWEngine <-> prevAgent
+      //swap to prevWEngine <-> prevAgent && newWEngine <-> newAgent(outside of this if)
 
-      if (prevLightCone)
-        super.setCached(prevLightCone.id, {
-          ...prevLightCone,
-          location: prevChar?.key ?? '',
+      if (prevWEngine)
+        super.setCached(prevWEngine.id, {
+          ...prevWEngine,
+          location: prevAgent?.key ?? '',
         })
-      else if (prevChar?.key) prevLightCone = undefined
+      else if (prevAgent?.key) prevWEngine = undefined
 
-      if (newChar)
-        this.database.chars.setEquippedLightCone(newChar.key, newLightCone.id)
-      if (prevChar)
-        this.database.chars.setEquippedLightCone(
-          prevChar.key,
-          prevLightCone?.id
+      if (newAgent)
+        this.database.agents.setEquippedWEngine(newAgent.key, newWEngine.id)
+      if (prevAgent)
+        this.database.agents.setEquippedWEngine(
+          prevAgent.key,
+          prevWEngine?.id
         )
     } else
-      newLightCone.location &&
-        this.database.chars.triggerCharacter(newLightCone.location, 'update')
-    return newLightCone
+      newWEngine.location &&
+        this.database.agents.triggerAgent(newWEngine.location, 'update')
+    return newWEngine
   }
-  override deCache(lightCone: ICachedLightCone): ILightCone {
-    const { key, level, ascension, superimpose, location, lock } = lightCone
-    return { key, level, ascension, superimpose, location, lock }
+  override deCache(wEngine: ICachedWEngine): IWEngine {
+    const { key, level, promotion, upgrade, location, lock } = wEngine
+    return { key, level, promotion, upgrade, location, lock }
   }
 
-  new(value: ILightCone): string {
+  new(value: IWEngine): string {
     const id = this.generateKey()
     this.set(id, value)
     return id
   }
-  override remove(key: string, notify = true): ICachedLightCone | undefined {
+  override remove(key: string, notify = true): ICachedWEngine | undefined {
     const lc = super.remove(key, notify)
     if (lc)
-      lc.location && this.database.chars.setEquippedLightCone(lc.location, '')
+      lc.location && this.database.agents.setEquippedWEngine(lc.location, '')
     return lc
   }
-  override importSROD(
-    srod: ISrObjectDescription & ISroDatabase,
+  override importZZZOD(
+    zzzod: IZZZObjectDescription & IZZZoDatabase,
     result: ImportResult
   ) {
-    result.lightCones.beforeMerge = this.values.length
+    result.wEngines.beforeMerge = this.values.length
 
-    // Match lightCones for counter, metadata, and locations.
-    const lightCones = srod.lightCones
+    // Match wEngines for counter, metadata, and locations.
+    const wEngines = zzzod.wEngines
 
-    if (!Array.isArray(lightCones) || !lightCones.length) {
-      result.lightCones.notInImport = this.values.length
+    if (!Array.isArray(wEngines) || !wEngines.length) {
+      result.wEngines.notInImport = this.values.length
       return
     }
 
     const takenIds = new Set(this.keys)
-    lightCones.forEach((a) => {
-      const id = (a as ICachedLightCone).id
+    wEngines.forEach((a) => {
+      const id = (a as ICachedWEngine).id
       if (!id) return
       takenIds.add(id)
     })
 
-    result.lightCones.import = lightCones.length
+    result.wEngines.import = wEngines.length
     const idsToRemove = new Set(this.values.map((w) => w.id))
-    const hasEquipment = lightCones.some((w) => w.location)
-    lightCones.forEach((w): void => {
-      const lightCone = this.validate(w)
-      if (!lightCone) {
-        result.lightCones.invalid.push(w)
+    const hasEquipment = wEngines.some((w) => w.location)
+    wEngines.forEach((w): void => {
+      const wEngine = this.validate(w)
+      if (!wEngine) {
+        result.wEngines.invalid.push(w)
         return
       }
 
-      let importLightCone = lightCone
-      let importId: string | undefined = (w as ICachedLightCone).id
+      let importWEngine = wEngine
+      let importId: string | undefined = (w as ICachedWEngine).id
       let foundDupOrUpgrade = false
       if (!result.ignoreDups) {
         const { duplicated, upgraded } = this.findDups(
-          lightCone,
+          wEngine,
           Array.from(idsToRemove)
         )
         if (duplicated[0] || upgraded[0]) {
@@ -137,8 +137,8 @@ export class LightConeDataManager extends DataManager<
           // Favor upgrades with the same location, else use 1st dupe
           let [match, isUpgrade] =
             hasEquipment &&
-            lightCone.location &&
-            upgraded[0]?.location === lightCone.location
+            wEngine.location &&
+            upgraded[0]?.location === wEngine.location
               ? [upgraded[0], true]
               : duplicated[0]
               ? [duplicated[0], false]
@@ -151,16 +151,16 @@ export class LightConeDataManager extends DataManager<
             if (dup) [match, isUpgrade] = [dup, false]
           }
           isUpgrade
-            ? result.lightCones.upgraded.push(lightCone)
-            : result.lightCones.unchanged.push(lightCone)
+            ? result.wEngines.upgraded.push(wEngine)
+            : result.wEngines.unchanged.push(wEngine)
           idsToRemove.delete(match.id)
 
-          //Imported lightCone will be set to `importId` later, so remove the dup/upgrade now to avoid a duplicate
+          //Imported wEngine will be set to `importId` later, so remove the dup/upgrade now to avoid a duplicate
           super.remove(match.id, false) // Do not notify, since this is a "replacement". Also use super to bypass the equipment check
           if (!importId) importId = match.id // always resolve some id
-          importLightCone = {
-            ...lightCone,
-            location: hasEquipment ? lightCone.location : match.location,
+          importWEngine = {
+            ...wEngine,
+            location: hasEquipment ? wEngine.location : match.location,
           }
         }
       }
@@ -177,75 +177,75 @@ export class LightConeDataManager extends DataManager<
             }
           }
         }
-        this.set(importId, importLightCone, !foundDupOrUpgrade)
+        this.set(importId, importWEngine, !foundDupOrUpgrade)
       } else {
         importId = this.generateKey(takenIds)
         takenIds.add(importId)
       }
-      this.set(importId, importLightCone, !foundDupOrUpgrade)
+      this.set(importId, importWEngine, !foundDupOrUpgrade)
     })
 
     // Shouldn't remove Somnia's signature
     const idtoRemoveArr = Array.from(idsToRemove)
     if (result.keepNotInImport || result.ignoreDups)
-      result.lightCones.notInImport = idtoRemoveArr.length
+      result.wEngines.notInImport = idtoRemoveArr.length
     else idtoRemoveArr.forEach((k) => this.remove(k))
   }
 
   findDups(
-    lightCone: ILightCone,
+    wEngine: IWEngine,
     idList = this.keys
-  ): { duplicated: ICachedLightCone[]; upgraded: ICachedLightCone[] } {
-    const { key, level, ascension, superimpose } = lightCone
+  ): { duplicated: ICachedWEngine[]; upgraded: ICachedWEngine[] } {
+    const { key, level, promotion, upgrade } = wEngine
 
-    const lightCones = idList
+    const wEngines = idList
       .map((id) => this.get(id))
-      .filter((a) => a) as ICachedLightCone[]
-    const candidates = lightCones.filter(
+      .filter((a) => a) as ICachedWEngine[]
+    const candidates = wEngines.filter(
       (candidate) =>
         key === candidate.key &&
         level >= candidate.level &&
-        ascension >= candidate.ascension &&
-        superimpose >= candidate.superimpose
+        promotion >= candidate.promotion &&
+        upgrade >= candidate.upgrade
     )
 
-    // Strictly upgraded lightCones
+    // Strictly upgraded wEngines
     const upgraded = candidates
       .filter(
         (candidate) =>
           level > candidate.level ||
-          ascension > candidate.ascension ||
-          superimpose > candidate.superimpose
+          promotion > candidate.promotion ||
+          upgrade > candidate.upgrade
       )
       .sort((candidates) =>
-        candidates.location === lightCone.location ? -1 : 1
+        candidates.location === wEngine.location ? -1 : 1
       )
-    // Strictly duplicated lightCones
+    // Strictly duplicated wEngines
     const duplicated = candidates
       .filter(
         (candidate) =>
           level === candidate.level &&
-          ascension === candidate.ascension &&
-          superimpose === candidate.superimpose
+          promotion === candidate.promotion &&
+          upgrade === candidate.upgrade
       )
       .sort((candidates) =>
-        candidates.location === lightCone.location ? -1 : 1
+        candidates.location === wEngine.location ? -1 : 1
       )
     return { duplicated, upgraded }
   }
 }
 
-export function validateLightCone(obj: unknown = {}): ILightCone | undefined {
+export function validateWEngine(obj: unknown = {}): IWEngine | undefined {
   if (typeof obj !== 'object') return undefined
-  const { key, level: rawLevel, ascension: rawAscension } = obj as ILightCone
-  let { superimpose, location, lock } = obj as ILightCone
+  const { key, level: rawLevel, promotion: rawPromotion } = obj as IWEngine
+  let { upgrade, location, lock } = obj as IWEngine
 
-  if (!allLightConeKeys.includes(key)) return undefined
-  if (rawLevel > lightConeMaxLevel) return undefined
-  const { level, ascension } = validateLevelAsc(rawLevel, rawAscension)
-  if (typeof superimpose !== 'number' || superimpose < 1 || superimpose > 5)
-    superimpose = 1
-  if (!location || !allCharacterKeys.includes(location)) location = ''
+  if (!allWEngineKeys.includes(key)) return undefined
+  if (rawLevel > wEngineMaxLevel) return undefined
+  const { level, promotion } = validateLevelAsc(rawLevel, rawPromotion)
+  if (typeof upgrade !== 'number' || upgrade < 1 || upgrade > 5)
+    upgrade = 1
+  if (!location || !agentKeys.includes(location)) location = ''
   lock = !!lock
-  return { key, level, ascension, superimpose, location, lock }
+  return { key, level, promotion, upgrade, location, lock }
 }
