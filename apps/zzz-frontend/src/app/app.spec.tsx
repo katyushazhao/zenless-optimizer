@@ -1,25 +1,18 @@
 import { render } from '@testing-library/react'
+import { expect, vi } from 'vitest'
+import App from './App'
 
-import { BrowserRouter } from 'react-router-dom'
-
-import App from './app'
+const MockIntersectionObserver = vi.fn(() => ({
+  disconnect: vi.fn(),
+  observe: vi.fn(),
+  takeRecords: vi.fn(),
+  unobserve: vi.fn(),
+}))
+vi.stubGlobal(`IntersectionObserver`, MockIntersectionObserver)
 
 describe('App', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
+    const { baseElement } = render(<App />)
     expect(baseElement).toBeTruthy()
-  })
-
-  it('should have a greeting as the title', () => {
-    const { getByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )
-    expect(getByText(/Welcome zzz-frontend/gi)).toBeTruthy()
   })
 })
