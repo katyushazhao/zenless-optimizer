@@ -85,7 +85,7 @@ function SettingsChip() {
 
 function DriveDiscsTab() {
   const { database } = useDatabaseContext()
-  return <Tally>{useDatabaseTally(database.drivediscs)}</Tally>
+  return <Tally>{useDatabaseTally(database.driveDiscs)}</Tally>
 }
 
 function WEnginesTab() {
