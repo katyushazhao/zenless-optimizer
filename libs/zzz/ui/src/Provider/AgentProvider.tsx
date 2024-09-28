@@ -7,7 +7,7 @@ import { AgentContext } from '../Context/AgentContext'
 export function AgentProvider({ children }: { children: ReactNode }) {
   const [agentKey, setAgentKey] = useState<AgentKey | ''>('')
   const agentContextObj: AgentContextObj = useMemo(
-    () => ({ agentKey, setAgentKey }),
+    () => ({ agent: undefined, agentKey, setAgentKey }),
     [agentKey]
   )
 
