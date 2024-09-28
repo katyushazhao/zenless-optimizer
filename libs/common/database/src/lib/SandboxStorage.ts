@@ -21,6 +21,10 @@ export class SandboxStorage implements DBStorage {
         this.dbVersionKey = 'sro_db_ver'
         this.dbIndexKey = 'sro_dbIndex'
         break
+      case 'zzzo': // Added new case
+        this.dbVersionKey = 'zzzo_db_ver'
+        this.dbIndexKey = 'zzzo_dbIndex'
+        break
     }
   }
 
