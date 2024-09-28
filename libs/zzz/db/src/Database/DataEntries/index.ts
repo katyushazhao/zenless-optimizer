@@ -2,6 +2,6 @@ import {
   agentSortKeys,
   type AgentSortKey,
 } from './DisplayAgentEntry'
-import type { LightConeSortKey } from './DisplayLightConeEntry'
+import type { WEngineSortKey } from './DisplayWEngineEntry'
 export { agentSortKeys }
-export type { AgentSortKey, LightConeSortKey }
+export type { AgentSortKey, WEngineSortKey }
