@@ -158,11 +158,19 @@
       "@genshin-optimizer/zzz/consts": ["libs/zzz/consts/src/index.ts"],
       "@genshin-optimizer/zzz/db": ["libs/zzz/db/src/index.ts"],
       "@genshin-optimizer/zzz/i18n": ["libs/zzz/i18n/src/index.ts"],
+      "@genshin-optimizer/zzz/page-agents": [
+        "libs/zzz/page-agents/src/index.tsx"
+      ],
       "@genshin-optimizer/zzz/page-drivediscs": [
         "libs/zzz/page-drivediscs/src/index.tsx"
       ],
       "@genshin-optimizer/zzz/page-settings": [
         "libs/zzz/page-settings/src/index.tsx"
+      ],
+      "@genshin-optimizer/zzz/page-team": ["libs/zzz/page-team/src/index.tsx"],
+      "@genshin-optimizer/zzz/page-teams": ["libs/zzz/page-teams/src/index.tsx"],
+      "@genshin-optimizer/zzz/page-wengines": [
+        "libs/zzz/page-wengines/src/index.tsx"
       ],
       "@genshin-optimizer/zzz/svgicons": ["libs/zzz/svgicons/src/index.ts"],
       "@genshin-optimizer/zzz/theme": ["libs/zzz/theme/src/index.ts"],

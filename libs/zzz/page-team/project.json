@@ -1,0 +1,9 @@
+{
+  "name": "zzz-page-team",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/zzz/page-team/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project zzz-page-teams --web",
+  "targets": {}
+}
