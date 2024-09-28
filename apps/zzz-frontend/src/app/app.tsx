@@ -24,7 +24,7 @@ import PageHome from './PageHome'
 // )
 // const PageTeams = lazy(() => import('@genshin-optimizer/zzz/page-teams'))
 // const PageTeam = lazy(() => import('@genshin-optimizer/zzz/page-team'))
-// const PageSettings = lazy(() => import('@genshin-optimizer/zzz/page-settings'))
+const PageSettings = lazy(() => import('@genshin-optimizer/zzz/page-settings'))
 
 export default function App() {
   return (
@@ -72,8 +72,8 @@ function Content() {
             <Route path="/teams/*">
               <Route index element={<PageTeams />} />
               <Route path=":teamId/*" element={<PageTeam />} />
-            </Route>
-            <Route path="/settings" element={<PageSettings />} /> */}
+            </Route>*/
+            <Route path="/settings" element={<PageSettings />} /> }
           </Routes>
         </Suspense>
       </Container>
