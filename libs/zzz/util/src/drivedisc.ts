@@ -5,59 +5,61 @@ import {
   range,
   toPercent,
 } from '@genshin-optimizer/common/util'
-import type { RelicSlotKey } from '@genshin-optimizer/sr/consts'
+import type { DriveDiscPartitionKey } from '@genshin-optimizer/zzz/consts'
 import {
-  allRelicCavernSlotKeys,
-  allRelicPlanarSetKeys,
-  allRelicPlanarSlotKeys,
-  allRelicRarityKeys,
-  allRelicSetKeys,
-  allRelicSubStatKeys,
-  relicMaxLevel,
-  relicSlotToMainStatKeys,
-  relicSubstatRollData,
-  type RelicMainStatKey,
-  type RelicRarityKey,
-  type RelicSubStatKey,
-} from '@genshin-optimizer/sr/consts'
-import type { IRelic, ISubstat } from '@genshin-optimizer/sr/srod'
-import { allStats } from '@genshin-optimizer/sr/stats'
+  allDriveDiscPartitionKeys,
+  allDriveDiscSeriesKeys,
+  allDriveDiscRarityKeys,
+  allDriveDiscSubStatKeys,
+  driveDiscMaxLevel,
+  driveDiscPartitionToMainStatKeys,
+  driveDiscSubstatRollData,
+  type DriveDiscMainStatKey,
+  type DriveDiscRarityKey,
+  type DriveDiscSubStatKey,
+} from '@genshin-optimizer/zzz/consts'
+import type { IDriveDisc, ISubStat } from '@genshin-optimizer/zzz/zzzod'
+// import { allStats } from '@genshin-optimizer/zzz/stats' // TODO: Update this import once zzz/stats is available
 
-export function getRelicMainStatVal(
-  rarity: RelicRarityKey,
-  statKey: RelicMainStatKey,
+export function getDriveDiscMainStatVal(
+  rarity: DriveDiscRarityKey,
+  statKey: DriveDiscMainStatKey,
   level: number
 ) {
-  const { base, add } = allStats.relic.main[rarity][statKey] ?? {}
+  // const { base, add } = allStats.driveDisc.main[rarity][statKey] ?? {} // TODO: Update this once zzz/stats is available
+  const base = 0 // TODO: Remove this placeholder once zzz/stats is available
+  const add = 0 // TODO: Remove this placeholder once zzz/stats is available
   if (base === undefined || add === undefined)
     throw new Error(
-      `Attempted to get relic main stat value that doesn't exist for a level ${level} ${rarity}-star, ${statKey} relic.`
+      `Attempted to get driveDisc main stat value that doesn't exist for a level ${level} ${rarity}-star, ${statKey} driveDisc.`
     )
   return base + add * level
 }
 
-export function getRelicMainStatDisplayVal(
-  rarity: RelicRarityKey,
-  statKey: RelicMainStatKey,
+export function getDriveDiscMainStatDisplayVal(
+  rarity: DriveDiscRarityKey,
+  statKey: DriveDiscMainStatKey,
   level: number
 ) {
   return roundStat(
-    toPercent(getRelicMainStatVal(rarity, statKey, level), statKey),
+    toPercent(getDriveDiscMainStatVal(rarity, statKey, level), statKey),
     statKey
   )
 }
 
 // TODO: Update this with proper corrected rolls
 export function getSubstatValue(
-  rarity: RelicRarityKey,
-  statKey: RelicSubStatKey,
+  rarity: DriveDiscRarityKey,
+  statKey: DriveDiscSubStatKey,
   type: 'low' | 'med' | 'high' = 'high',
   round = true
 ) {
-  const { base, step } = allStats.relic.sub[rarity][statKey] ?? {}
+  // const { base, step } = allStats.driveDisc.sub[rarity][statKey] ?? {} // TODO: Update this once zzz/stats is available
+  const base = 0 // TODO: Remove this placeholder once zzz/stats is available
+  const step = 0 // TODO: Remove this placeholder once zzz/stats is available
   if (base === undefined || step === undefined)
     throw new Error(
-      `Attempted to get relic sub stat value that doesn't exist for a ${rarity}-star relic with substat ${statKey}.`
+      `Attempted to get driveDisc sub stat value that doesn't exist for a ${rarity}-star driveDisc with subStat ${statKey}.`
     )
   const steps = type === 'low' ? 0 : type === 'med' ? 1 : 2
   const value = base + steps * step
@@ -66,11 +68,11 @@ export function getSubstatValue(
 
 // TODO: Update this with proper corrected rolls
 export function getSubstatRange(
-  rarity: RelicRarityKey,
-  statKey: RelicSubStatKey,
+  rarity: DriveDiscRarityKey,
+  statKey: DriveDiscSubStatKey,
   round = true
 ) {
-  const { numUpgrades } = relicSubstatRollData[rarity]
+  const { numUpgrades } = driveDiscSubstatRollData[rarity]
   const high =
     getSubstatValue(rarity, statKey, 'high', false) * (numUpgrades + 1)
   return {
@@ -79,64 +81,64 @@ export function getSubstatRange(
   }
 }
 
-export function randomizeRelic(base: Partial<IRelic> = {}): IRelic {
-  const setKey = base.setKey ?? getRandomElementFromArray(allRelicSetKeys)
+export function randomizeDriveDisc(base: Partial<IDriveDisc> = {}): IDriveDisc {
+  const series = base.series ?? getRandomElementFromArray(allDriveDiscSeriesKeys)
 
-  const rarity = base.rarity ?? getRandomElementFromArray(allRelicRarityKeys)
-  const slot: RelicSlotKey =
-    base.slotKey ??
+  const rarity = base.rarity ?? getRandomElementFromArray(allDriveDiscRarityKeys)
+  const partition: DriveDiscPartitionKey =
+    base.partition ??
     getRandomElementFromArray(
-      [...(allRelicPlanarSetKeys as readonly string[])].includes(setKey)
-        ? allRelicPlanarSlotKeys
-        : allRelicCavernSlotKeys
+      [...(allDriveDiscSeriesKeys as readonly string[])].includes(series)
+        ? allDriveDiscPartitionKeys
+        : allDriveDiscPartitionKeys
     )
-  const mainStatKey: RelicMainStatKey =
-    base.mainStatKey ?? getRandomElementFromArray(relicSlotToMainStatKeys[slot])
-  const level = base.level ?? getRandomIntInclusive(0, relicMaxLevel[rarity])
-  const substats: ISubstat[] = [0, 1, 2, 3].map(() => ({ key: '', value: 0 }))
+  const mainStat: DriveDiscMainStatKey =
+    base.mainStat ?? getRandomElementFromArray(driveDiscPartitionToMainStatKeys[partition])
+  const level = base.level ?? getRandomIntInclusive(0, driveDiscMaxLevel[rarity])
+  const subStats: ISubStat[] = [0, 1, 2, 3].map(() => ({ key: '', value: 0 }))
 
-  const { low, high } = relicSubstatRollData[rarity]
+  const { low, high } = driveDiscSubstatRollData[rarity]
   const totRolls = Math.floor(level / 3) + getRandomIntInclusive(low, high)
   const numOfInitialSubstats = Math.min(totRolls, 4)
   const numUpgradesOrUnlocks = totRolls - numOfInitialSubstats
 
-  const RollStat = (substat: RelicSubStatKey): number =>
-    allStats.relic.sub[rarity][substat].base +
-    getRandomElementFromArray(range(0, 2)) *
-      allStats.relic.sub[rarity][substat].step
+  // const RollStat = (subStat: DriveDiscSubStatKey): number =>
+  //   allStats.driveDisc.sub[rarity][subStat].base + // TODO: Update this once zzz/stats is available
+  //   getRandomElementFromArray(range(0, 2)) *
+  //     allStats.driveDisc.sub[rarity][subStat].step // TODO: Update this once zzz/stats is available
 
-  let remainingSubstats = allRelicSubStatKeys.filter(
-    (key) => mainStatKey !== key
+  let remainingSubstats = allDriveDiscSubStatKeys.filter(
+    (key) => mainStat !== key
   )
-  for (const substat of substats.slice(0, numOfInitialSubstats)) {
-    substat.key = getRandomElementFromArray(remainingSubstats)
-    substat.value = RollStat(substat.key as RelicSubStatKey)
-    remainingSubstats = remainingSubstats.filter((key) => key !== substat.key)
+  for (const subStat of subStats.slice(0, numOfInitialSubstats)) {
+    subStat.key = getRandomElementFromArray(remainingSubstats)
+    // subStat.value = RollStat(subStat.key as DriveDiscSubStatKey) // TODO: Update this once zzz/stats is available
+    remainingSubstats = remainingSubstats.filter((key) => key !== subStat.key)
   }
   for (let i = 0; i < numUpgradesOrUnlocks; i++) {
-    const substat = getRandomElementFromArray(substats)
-    substat.value += RollStat(substat.key as any)
+    const subStat = getRandomElementFromArray(subStats)
+    // subStat.value += RollStat(subStat.key as any) // TODO: Update this once zzz/stats is available
   }
-  for (const substat of substats)
-    if (substat.key) {
-      substat.value = roundStat(substat.value, substat.key)
+  for (const subStat of subStats)
+    if (subStat.key) {
+      subStat.value = roundStat(subStat.value, subStat.key)
     }
 
   return {
-    setKey,
+    series,
     rarity,
-    slotKey: slot,
-    mainStatKey,
+    partition: partition,
+    mainStat,
     level,
-    substats,
+    subStats,
     location: base.location ?? '',
-    lock: false,
+    locked: false,
   }
 }
 
 export function roundStat(
   value: number,
-  statKey: RelicMainStatKey | RelicSubStatKey
+  statKey: DriveDiscMainStatKey | DriveDiscSubStatKey
 ) {
   return getUnitStr(statKey) === '%'
     ? Math.round(value * 10000) / 10000
@@ -145,8 +147,8 @@ export function roundStat(
 
 // TODO: implement when roll table is added
 export function getSubstatSummedRolls(
-  rarity: RelicRarityKey,
-  key: RelicSubStatKey
+  rarity: DriveDiscRarityKey,
+  key: DriveDiscSubStatKey
 ): number[] {
   // for now, return min and max range
   return Object.values(getSubstatRange(rarity, key, false)).map((v) =>
@@ -156,9 +158,9 @@ export function getSubstatSummedRolls(
 
 // TODO: implement when roll table is added
 export function getSubstatValuesPercent(
-  substatKey: RelicSubStatKey,
-  rarity: RelicRarityKey
+  subStatKey: DriveDiscSubStatKey,
+  rarity: DriveDiscRarityKey
 ) {
-  console.log('getSubstatValuesPercent', substatKey, rarity)
+  console.log('getSubstatValuesPercent', subStatKey, rarity)
   return []
 }
