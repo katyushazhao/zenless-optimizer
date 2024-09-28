@@ -1,5 +1,5 @@
-import type { ILightCone, IRelic } from '@genshin-optimizer/sr/srod'
-import type { ISroCharacter } from '../Interfaces'
+import type { IWEngine, IDriveDisc } from '@genshin-optimizer/zzz/zzzod'
+import type { ICachedAgent } from '../Interfaces'
 
 function newCounter<T>(): ImportResultCounter<T> {
   return {
@@ -21,11 +21,11 @@ export function newImportResult(
   ignoreDups: boolean
 ): ImportResult {
   return {
-    type: 'SR',
+    type: 'ZZZ',
     source,
-    relics: newCounter(),
-    lightCones: newCounter(),
-    characters: newCounter(),
+    drivediscs: newCounter(),
+    wEngines: newCounter(),
+    agents: newCounter(),
     keepNotInImport,
     ignoreDups,
   }
@@ -43,11 +43,11 @@ export type ImportResultCounter<T> = {
   beforeMerge: number
 }
 export type ImportResult = {
-  type: 'SR'
+  type: 'ZZZ'
   source: string
-  relics: ImportResultCounter<IRelic>
-  lightCones: ImportResultCounter<ILightCone>
-  characters: ImportResultCounter<ISroCharacter>
+  drivediscs: ImportResultCounter<IDriveDisc>
+  wEngines: ImportResultCounter<IWEngine>
+  agents: ImportResultCounter<ICachedAgent>
   keepNotInImport: boolean
   ignoreDups: boolean
 }
