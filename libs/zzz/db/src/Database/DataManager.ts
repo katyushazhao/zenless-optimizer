@@ -1,6 +1,6 @@
 import { DataManagerBase } from '@genshin-optimizer/common/database'
-import type { ISrObjectDescription } from '@genshin-optimizer/sr/srod'
-import type { ISroDatabase, SroDatabase } from '..'
+import type { IZZZObjectDescription } from '@genshin-optimizer/zzz/zzzod'
+import type { IZZZoDatabase, ZZZoDatabase } from '..'
 import type { ImportResult } from './exim'
 export class DataManager<
   CacheKey extends string,
@@ -12,9 +12,9 @@ export class DataManager<
   DataKey,
   CacheValue,
   StorageValue,
-  SroDatabase
+  ZZZoDatabase
 > {
-  constructor(database: SroDatabase, dataKey: DataKey) {
+  constructor(database: ZZZoDatabase, dataKey: DataKey) {
     super(database, dataKey)
     // If the storage has a key for some entry AND
     // the entry doesn't exist in memory:
@@ -27,15 +27,15 @@ export class DataManager<
         this.database.storage.remove(key)
       }
   }
-  exportSROD(sro: Partial<ISrObjectDescription & ISroDatabase>) {
+  exportZZZOD(zzzo: Partial<IZZZObjectDescription & IZZZoDatabase>) {
     const key = this.dataKey
-    sro[key] = Object.entries(this.data).map(([id, value]) => ({
+    zzzo[key] = Object.entries(this.data).map(([id, value]) => ({
       ...this.deCache(value),
       id,
     }))
   }
-  importSROD(sro: ISrObjectDescription & ISroDatabase, _result: ImportResult) {
-    const entries = sro[this.dataKey]
+  importZZZOD(zzzo: IZZZObjectDescription & IZZZoDatabase, _result: ImportResult) {
+    const entries = zzzo[this.dataKey]
     if (entries && Array.isArray(entries))
       entries.forEach((ele) => ele.id && this.set(ele.id, ele))
   }
