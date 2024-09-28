@@ -1,27 +1,27 @@
 import { DataEntryBase } from '@genshin-optimizer/common/database'
-import type { ISrObjectDescription } from '@genshin-optimizer/sr/srod'
-import type { ISroDatabase } from '../Interfaces'
-import type { SroDatabase } from './Database'
+import type { IZZZObjectDescription } from '@genshin-optimizer/zzz/zzzod'
+import type { IZZZoDatabase } from '../Interfaces'
+import type { ZZZoDatabase } from './Database'
 import type { ImportResult } from './exim'
 
 export class DataEntry<
   Key extends string,
-  SROKey extends string,
+  ZZZOKey extends string,
   CacheValue,
   StorageValue
-> extends DataEntryBase<Key, SROKey, CacheValue, StorageValue, SroDatabase> {
+> extends DataEntryBase<Key, ZZZOKey, CacheValue, StorageValue, ZZZoDatabase> {
   get prefixedKey() {
     return `${this.database.keyPrefix}_${this.goKey}`
   }
-  exportSROD(sroDb: Partial<ISroDatabase & ISrObjectDescription>) {
-    sroDb[this.prefixedKey] = this.data
+  exportZZZOD(zzzoDb: Partial<IZZZoDatabase & IZZZObjectDescription>) {
+    zzzoDb[this.prefixedKey] = this.data
   }
-  importSROD(
-    sroDb: ISrObjectDescription &
-      ISroDatabase & { [k in SROKey]?: Partial<StorageValue> | never },
+  importZZZOD(
+    zzzoDb: IZZZObjectDescription &
+      IZZZoDatabase & { [k in ZZZOKey]?: Partial<StorageValue> | never },
     _result: ImportResult
   ) {
-    const data = sroDb[this.prefixedKey]
+    const data = zzzoDb[this.prefixedKey]
     if (data) this.set(data)
   }
 }
