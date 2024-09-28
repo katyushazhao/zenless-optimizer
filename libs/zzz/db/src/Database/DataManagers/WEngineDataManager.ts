@@ -17,7 +17,7 @@ import type {
 import { DataManager } from '../DataManager'
 import type { SroDatabase } from '../Database'
 import type { ImportResult } from '../exim'
-import { initialCharacter } from './CharacterDataManager'
+import { initialCharacter } from './AgentDataManager'
 
 export class LightConeDataManager extends DataManager<
   string,
