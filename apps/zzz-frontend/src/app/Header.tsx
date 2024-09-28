@@ -95,7 +95,7 @@ function WEnginesTab() {
 
 function AgentsTab() {
   const { database } = useDatabaseContext()
-  return <Tally>{useDatabaseTally(database.chars)}</Tally>
+  return <Tally>{useDatabaseTally(database.agents)}</Tally>
 }
 
 function TeamsTab() {
