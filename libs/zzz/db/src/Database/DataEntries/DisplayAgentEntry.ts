@@ -12,24 +12,24 @@ import {
 import { DataEntry } from '../DataEntry'
 import type { ZZZoDatabase } from '../Database'
 
-export const characterSortKeys = [
+export const agentSortKeys = [
   'new',
   'level',
   'rarity',
   'name',
   'favorite',
 ] as const
-export type CharacterSortKey = (typeof characterSortKeys)[number]
+export type AgentSortKey = (typeof agentSortKeys)[number]
 
-export interface IDisplayCharacterEntry {
-  sortType: CharacterSortKey
+export interface IDisplayAgentEntry {
+  sortType: AgentSortKey
   ascending: boolean
   specialty: SpecialtyKey[]
   anomalyType: AnomalyTypeKey[]
   rarity: RarityKey[]
 }
 
-const initialState = (): IDisplayCharacterEntry => ({
+const initialState = (): IDisplayAgentEntry => ({
   sortType: 'level',
   ascending: false,
   specialty: [...allSpecialtyKeys],
@@ -37,28 +37,28 @@ const initialState = (): IDisplayCharacterEntry => ({
   rarity: [...allRarityKeys],
 })
 
-export class DisplayCharacterEntry extends DataEntry<
-  'display_character',
-  'display_character',
-  IDisplayCharacterEntry,
-  IDisplayCharacterEntry
+export class DisplayAgentEntry extends DataEntry<
+  'display_agent',
+  'display_agent',
+  IDisplayAgentEntry,
+  IDisplayAgentEntry
 > {
   constructor(database: ZZZoDatabase) {
-    super(database, 'display_character', initialState, 'display_character')
+    super(database, 'display_agent', initialState, 'display_agent')
   }
-  override validate(obj: any): IDisplayCharacterEntry | undefined {
+  override validate(obj: any): IDisplayAgentEntry | undefined {
     if (typeof obj !== 'object') return undefined
     let { sortType, ascending, specialty, anomalyType, rarity } = obj
 
     //Disallow sorting by "new" explicitly.
-    if (sortType === 'new' || !characterSortKeys.includes(sortType))
+    if (sortType === 'new' || !agentSortKeys.includes(sortType))
       sortType = 'level'
     if (typeof ascending !== 'boolean') ascending = false
     specialty = validateArr(specialty, allSpecialtyKeys)
     anomalyType = validateArr(anomalyType, allAnomalyTypeKeys)
     rarity = validateArr(rarity, allRarityKeys)
 
-    const data: IDisplayCharacterEntry = {
+    const data: IDisplayAgentEntry = {
       sortType,
       ascending,
       specialty,
