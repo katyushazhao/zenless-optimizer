@@ -1,10 +1,10 @@
-import type { ZzzDatabase } from '@genshin-optimizer/zzz/db'
+import type { ZZZoDatabase } from '@genshin-optimizer/zzz/db'
 import { createContext, useContext } from 'react'
 
 export type DatabaseContextObj = {
-  databases: ZzzDatabase[]
-  setDatabase: (index: number, db: ZzzDatabase) => void
-  database: ZzzDatabase
+  databases: ZZZoDatabase[]
+  setDatabase: (index: number, db: ZZZoDatabase) => void
+  database: ZZZoDatabase
 }
 
 export const DatabaseContext = createContext({} as DatabaseContextObj)
