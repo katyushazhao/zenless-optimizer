@@ -1,7 +1,7 @@
 import { ScrollTop } from '@genshin-optimizer/common/ui'
-// import '@genshin-optimizer/zzz/i18n' // import to load translations
+import '@genshin-optimizer/zzz/i18n' // import to load translations
 import { theme } from '@genshin-optimizer/zzz/theme'
-import { CharacterProvider, DatabaseProvider } from '@genshin-optimizer/zzz/ui'
+import { AgentProvider, DatabaseProvider } from '@genshin-optimizer/zzz/ui'
 import {
   Box,
   Container,
@@ -15,15 +15,15 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import Header from './Header'
 import PageHome from './PageHome'
 
-// const PageRelics = lazy(() => import('@genshin-optimizer/zzz/page-relics'))
-// const PageLightCones = lazy(
-//   () => import('@genshin-optimizer/zzz/page-lightcones')
-// )
-// const PageCharacters = lazy(
-//   () => import('@genshin-optimizer/zzz/page-characters')
-// )
-// const PageTeams = lazy(() => import('@genshin-optimizer/zzz/page-teams'))
-// const PageTeam = lazy(() => import('@genshin-optimizer/zzz/page-team'))
+const PageDriveDiscs = lazy(() => import('@genshin-optimizer/zzz/page-drivediscs'))
+const PageWEngines = lazy(
+  () => import('@genshin-optimizer/zzz/page-wengines')
+)
+const PageAgents = lazy(
+  () => import('@genshin-optimizer/zzz/page-agents')
+)
+const PageTeams = lazy(() => import('@genshin-optimizer/zzz/page-teams'))
+const PageTeam = lazy(() => import('@genshin-optimizer/zzz/page-team'))
 const PageSettings = lazy(() => import('@genshin-optimizer/zzz/page-settings'))
 
 export default function App() {
@@ -33,12 +33,12 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline enableColorScheme />
         <DatabaseProvider>
-          <CharacterProvider>
+          <AgentProvider>
             <HashRouter basename="/">
               <Content />
               <ScrollTop />
             </HashRouter>
-          </CharacterProvider>
+          </AgentProvider>
         </DatabaseProvider>
       </ThemeProvider>
     </StyledEngineProvider>
@@ -66,13 +66,13 @@ function Content() {
         >
           <Routes>
             <Route index element={<PageHome />} />
-            {/* <Route path="/relics" element={<PageRelics />} />
-            <Route path="/lightcones" element={<PageLightCones />} />
-            <Route path="/characters" element={<PageCharacters />} />
+             <Route path="/drivediscs" element={<PageDriveDiscs />} />
+            <Route path="/wengines" element={<PageWEngines />} />
+            <Route path="/agents" element={<PageAgents />} />
             <Route path="/teams/*">
               <Route index element={<PageTeams />} />
               <Route path=":teamId/*" element={<PageTeam />} />
-            </Route>*/}
+            </Route>
             <Route path="/settings" element={<PageSettings />} />
           </Routes>
         </Suspense>
