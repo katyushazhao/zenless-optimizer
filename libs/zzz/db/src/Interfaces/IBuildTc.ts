@@ -1,37 +1,35 @@
 import type {
-  AscensionKey,
-  LightConeKey,
-  RelicMainStatKey,
-  RelicSetKey,
-  RelicSlotKey,
-  RelicSubStatKey,
-  RelicSubstatTypeKey,
-  SuperimposeKey,
-} from '@genshin-optimizer/sr/consts'
+  PromotionKey,
+  WEngineKey,
+  DriveDiscMainStatKey,
+  DriveDiscSeriesKey,
+  DriveDiscPartitionKey,
+  DriveDiscSubStatKey,
+  UpgradeKey,
+} from '@genshin-optimizer/zzz/consts'
 
-export type BuildTcRelicSlot = {
+export type BuildTcDriveDiscPartition = {
   level: number
-  statKey: RelicMainStatKey
+  statKey: DriveDiscMainStatKey
 }
 export interface IBuildTc {
   name: string
   description: string
-  lightCone?: {
-    key: LightConeKey
+  wEngine?: {
+    key: WEngineKey
     level: number
-    ascension: AscensionKey
-    superimpose: SuperimposeKey
+    promotion: PromotionKey
+    upgrade: UpgradeKey
   }
-  relic: {
-    slots: Record<RelicSlotKey, BuildTcRelicSlot>
+  drivedisc: {
+    partitions: Record<DriveDiscPartitionKey, BuildTcDriveDiscPartition>
     substats: {
-      type: RelicSubstatTypeKey
-      stats: Record<RelicSubStatKey, number>
+      stats: Record<DriveDiscSubStatKey, number>
     }
-    sets: Partial<Record<RelicSetKey, 2 | 4>>
+    seriess: Partial<Record<DriveDiscSeriesKey, 2 | 4>>
   }
   optimization: {
-    distributedSubstats: number
-    maxSubstats: Record<RelicSubStatKey, number>
+    distributedSubStats: number
+    maxSubStats: Record<DriveDiscSubStatKey, number>
   }
 }
