@@ -128,9 +128,9 @@ export class AgentDataManager extends DataManager<
     const char = this.get(key)
     if (!char) return undefined
     for (const drivediscKey of Object.values(char.equippedDriveDiscs)) {
-      const drivedisc = this.database.drivediscs.get(drivediscKey)
+      const drivedisc = this.database.driveDiscs.get(drivediscKey)
       if (drivedisc && drivedisc.location === key)
-        this.database.drivediscs.setCached(drivediscKey, { ...drivedisc, location: '' })
+        this.database.driveDiscs.setCached(drivediscKey, { ...drivedisc, location: '' })
     }
     const wEngine = this.database.wEngines.get(char.equippedWEngine)
     if (wEngine && wEngine.location === key && char.equippedWEngine)
