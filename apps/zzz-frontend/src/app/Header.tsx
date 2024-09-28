@@ -6,7 +6,7 @@ import {
   DriveDiscIcon,
   TeamsIcon,
 } from '@genshin-optimizer/zzz/svgicons'
-// import { useDatabaseContext } from '@genshin-optimizer/zzz/ui'
+import { useDatabaseContext } from '@genshin-optimizer/zzz/ui'
 import { Settings } from '@mui/icons-material'
 import MenuIcon from '@mui/icons-material/Menu'
 import {
@@ -37,37 +37,37 @@ type ITab = {
   value: string
   textSuffix?: ReactNode
 }
-// const drivediscs: ITab = {
-//   i18Key: 'tabs.drivediscs',
-//   icon: <DriveDiscIcon />,
-//   to: '/drivediscs',
-//   value: 'drivediscs',
-//   textSuffix: <DriveDiscsTab key="drivediscsAdd" />,
-// }
+const drivediscs: ITab = {
+  i18Key: 'tabs.drivediscs',
+  icon: <DriveDiscIcon />,
+  to: '/drivediscs',
+  value: 'drivediscs',
+  textSuffix: <DriveDiscsTab key="drivediscsAdd" />,
+}
 
-// const wEngines: ITab = {
-//   i18Key: 'tabs.wengines',
-//   icon: <WEngineIcon />,
-//   to: '/wengines',
-//   value: 'wengines',
-//   textSuffix: <WEnginesTab key="wEngineAdd" />,
-// }
+const wEngines: ITab = {
+  i18Key: 'tabs.wengines',
+  icon: <WEngineIcon />,
+  to: '/wengines',
+  value: 'wengines',
+  textSuffix: <WEnginesTab key="wEngineAdd" />,
+}
 
-// const agents: ITab = {
-//   i18Key: 'tabs.agents',
-//   icon: <AgentIcon />,
-//   to: '/agents',
-//   value: 'agents',
-//   textSuffix: <AgentsTab key="charAdd" />,
-// }
+const agents: ITab = {
+  i18Key: 'tabs.agents',
+  icon: <AgentIcon />,
+  to: '/agents',
+  value: 'agents',
+  textSuffix: <AgentsTab key="charAdd" />,
+}
 
-// const teams: ITab = {
-//   i18Key: 'tabs.teams',
-//   icon: <TeamsIcon />,
-//   to: '/teams',
-//   value: 'teams',
-//   textSuffix: <TeamsTab key="teamAdd" />,
-// }
+const teams: ITab = {
+  i18Key: 'tabs.teams',
+  icon: <TeamsIcon />,
+  to: '/teams',
+  value: 'teams',
+  textSuffix: <TeamsTab key="teamAdd" />,
+}
 
 const settings: ITab = {
   i18Key: 'tabs.settings',
@@ -78,30 +78,30 @@ const settings: ITab = {
 }
 
 function SettingsChip() {
-  // const { database } = useDatabaseContext()
-  const name = 'Database 0' // const { name } = database?.dbMeta.get() ?? 'Database 0'
+  const { database } = useDatabaseContext()
+  const { name } = database?.dbMeta.get() ?? 'Database 0'
   return <Chip label={name} />
 }
 
-// function DriveDiscsTab() {
-//   const { database } = useDatabaseContext()
-//   return <Tally>{useDatabaseTally(database.drivediscs)}</Tally>
-// }
+function DriveDiscsTab() {
+  const { database } = useDatabaseContext()
+  return <Tally>{useDatabaseTally(database.drivediscs)}</Tally>
+}
 
-// function WEnginesTab() {
-//   const { database } = useDatabaseContext()
-//   return <Tally>{useDatabaseTally(database.wEngines)}</Tally>
-// }
+function WEnginesTab() {
+  const { database } = useDatabaseContext()
+  return <Tally>{useDatabaseTally(database.wEngines)}</Tally>
+}
 
-// function AgentsTab() {
-//   const { database } = useDatabaseContext()
-//   return <Tally>{useDatabaseTally(database.chars)}</Tally>
-// }
+function AgentsTab() {
+  const { database } = useDatabaseContext()
+  return <Tally>{useDatabaseTally(database.chars)}</Tally>
+}
 
-// function TeamsTab() {
-//   const { database } = useDatabaseContext()
-//   return <Tally>{useDatabaseTally(database.teams)}</Tally>
-// }
+function TeamsTab() {
+  const { database } = useDatabaseContext()
+  return <Tally>{useDatabaseTally(database.teams)}</Tally>
+}
 
 export default function Header({ anchor }: { anchor: string }) {
   return (
@@ -111,7 +111,7 @@ export default function Header({ anchor }: { anchor: string }) {
   )
 }
 
-const maincontent = [settings] as const // [drivediscs, wEngines, agents, teams, settings] as const
+const maincontent = [drivediscs, wEngines, agents, teams, settings] as const
 
 function HeaderContent({ anchor }: { anchor: string }) {
   const theme = useTheme()
@@ -209,7 +209,7 @@ function DesktopHeader({
   )
 }
 
-const mobileContent = [settings] as const // [drivediscs, wEngines, agents, teams, settings] as const
+const mobileContent = [drivediscs, wEngines, agents, teams, settings] as const
 function MobileHeader({
   anchor,
   currentTab,
