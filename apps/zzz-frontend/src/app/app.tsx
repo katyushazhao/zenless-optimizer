@@ -1,56 +1,82 @@
-import styled from '@emotion/styled'
+import { ScrollTop } from '@genshin-optimizer/common/ui'
+// import '@genshin-optimizer/zzz/i18n' // import to load translations
+// import { theme } from '@genshin-optimizer/zzz/theme'
+// import { CharacterProvider, DatabaseProvider } from '@genshin-optimizer/zzz/ui'
+import {
+  Box,
+  Container,
+  CssBaseline,
+  Skeleton,
+  StyledEngineProvider,
+  ThemeProvider,
+} from '@mui/material'
+import { Suspense, lazy } from 'react'
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import Header from './Header'
+import PageHome from './PageHome'
 
-import NxWelcome from './nx-welcome'
+// const PageRelics = lazy(() => import('@genshin-optimizer/zzz/page-relics'))
+// const PageLightCones = lazy(
+//   () => import('@genshin-optimizer/zzz/page-lightcones')
+// )
+// const PageCharacters = lazy(
+//   () => import('@genshin-optimizer/zzz/page-characters')
+// )
+// const PageTeams = lazy(() => import('@genshin-optimizer/zzz/page-teams'))
+// const PageTeam = lazy(() => import('@genshin-optimizer/zzz/page-team'))
+// const PageSettings = lazy(() => import('@genshin-optimizer/zzz/page-settings'))
 
-import { Link, Route, Routes } from 'react-router-dom'
-
-const StyledApp = styled.div`
-  // Your style here
-`
-
-export function App() {
+export default function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="zzz-frontend" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
-    </StyledApp>
+    <StyledEngineProvider injectFirst>
+      {/* https://mui.com/guides/interoperability/#css-injection-order-2 */}
+      {/* <ThemeProvider theme={theme}> */}
+        <CssBaseline enableColorScheme />
+        {/* <DatabaseProvider>
+          <CharacterProvider> */}
+            <HashRouter basename="/">
+              <Content />
+              <ScrollTop />
+            </HashRouter>
+          {/* </CharacterProvider>
+        </DatabaseProvider> */}
+      {/* </ThemeProvider> */}
+    </StyledEngineProvider>
   )
 }
 
-export default App
+function Content() {
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      minHeight="100vh"
+      position="relative"
+    >
+      <Header anchor="back-to-top-anchor" />
+
+      <Container maxWidth="xl" sx={{ px: { xs: 0.5, sm: 1 } }}>
+        <Suspense
+          fallback={
+            <Skeleton
+              variant="rectangular"
+              sx={{ width: '100%', height: '100%' }}
+            />
+          }
+        >
+          <Routes>
+            <Route index element={<PageHome />} />
+            {/* <Route path="/relics" element={<PageRelics />} />
+            <Route path="/lightcones" element={<PageLightCones />} />
+            <Route path="/characters" element={<PageCharacters />} />
+            <Route path="/teams/*">
+              <Route index element={<PageTeams />} />
+              <Route path=":teamId/*" element={<PageTeam />} />
+            </Route>
+            <Route path="/settings" element={<PageSettings />} /> */}
+          </Routes>
+        </Suspense>
+      </Container>
+    </Box>
+  )
+}
