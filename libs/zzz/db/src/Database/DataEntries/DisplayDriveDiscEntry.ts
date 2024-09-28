@@ -1,40 +1,40 @@
 import { clamp, validateArr } from '@genshin-optimizer/common/util'
 import type {
   LocationKey,
-  RelicMainStatKey,
-  RelicRarityKey,
-  RelicSetKey,
-  RelicSlotKey,
-  RelicSubStatKey,
-} from '@genshin-optimizer/sr/consts'
+  DriveDiscMainStatKey,
+  DriveDiscRarityKey,
+  DriveDiscSeriesKey,
+  DriveDiscPartitionKey,
+  DriveDiscSubStatKey,
+} from '@genshin-optimizer/zzz/consts'
 import {
   allLocationKeys,
-  allRelicRarityKeys,
-  allRelicSetKeys,
-  allRelicSlotKeys,
-  allRelicSubStatKeys,
-} from '@genshin-optimizer/sr/consts'
+  allDriveDiscRarityKeys,
+  allDriveDiscSeriesKeys,
+  allDriveDiscPartitionKeys,
+  allDriveDiscSubStatKeys,
+} from '@genshin-optimizer/zzz/consts'
 
 import { DataEntry } from '../DataEntry'
-import type { SroDatabase } from '../Database'
+import type { ZZZoDatabase } from '../Database'
 
-export const relicSortKeys = [
+export const drivediscSortKeys = [
   'rarity',
   'level',
-  'relicsetkey',
+  'drivediscserieskey',
   'efficiency',
   'mefficiency',
 ] as const
-export type RelicSortKey = (typeof relicSortKeys)[number]
+export type DriveDiscSortKey = (typeof drivediscSortKeys)[number]
 
 export type FilterOption = {
-  relicSetKeys: RelicSetKey[]
-  rarity: RelicRarityKey[]
+  drivediscSeriesKeys: DriveDiscSeriesKey[]
+  rarity: DriveDiscRarityKey[]
   levelLow: number
   levelHigh: number
-  slotKeys: RelicSlotKey[]
-  mainStatKeys: RelicMainStatKey[]
-  substats: RelicSubStatKey[]
+  partitionKeys: DriveDiscPartitionKey[]
+  mainStatKeys: DriveDiscMainStatKey[]
+  substats: DriveDiscSubStatKey[]
   locations: LocationKey[]
   showEquipped: boolean
   showInventory: boolean
@@ -45,20 +45,20 @@ export type FilterOption = {
   lines: Array<1 | 2 | 3 | 4>
 }
 
-export type IDisplayRelic = {
+export type IDisplayDriveDisc = {
   filterOption: FilterOption
   ascending: boolean
-  sortType: RelicSortKey
-  effFilter: RelicSubStatKey[]
+  sortType: DriveDiscSortKey
+  effFilter: DriveDiscSubStatKey[]
 }
 
 export function initialFilterOption(): FilterOption {
   return {
-    relicSetKeys: [],
-    rarity: [...allRelicRarityKeys],
+    drivediscSeriesKeys: [],
+    rarity: [...allDriveDiscRarityKeys],
     levelLow: 0,
     levelHigh: 15,
-    slotKeys: [...allRelicSlotKeys],
+    partitionKeys: [...allDriveDiscPartitionKeys],
     mainStatKeys: [],
     substats: [],
     locations: [],
@@ -66,42 +66,42 @@ export function initialFilterOption(): FilterOption {
     showInventory: true,
     locked: ['locked', 'unlocked'],
     rvLow: 0,
-    rvHigh: 900, // TODO: Figure out RVs for SRO
+    rvHigh: 900, // TODO: Figure out RVs for ZZZO
     useMaxRV: false,
     lines: [1, 2, 3, 4],
   }
 }
 
-function initialState(): IDisplayRelic {
+function initialState(): IDisplayDriveDisc {
   return {
     filterOption: initialFilterOption(),
     ascending: false,
-    sortType: relicSortKeys[0],
-    effFilter: [...allRelicSubStatKeys],
+    sortType: drivediscSortKeys[0],
+    effFilter: [...allDriveDiscSubStatKeys],
   }
 }
 
-export class DisplayRelicEntry extends DataEntry<
-  'display_relic',
-  'display_relic',
-  IDisplayRelic,
-  IDisplayRelic
+export class DisplayDriveDiscEntry extends DataEntry<
+  'display_drivedisc',
+  'display_drivedisc',
+  IDisplayDriveDisc,
+  IDisplayDriveDisc
 > {
-  constructor(database: SroDatabase) {
-    super(database, 'display_relic', initialState, 'display_relic')
+  constructor(database: ZZZoDatabase) {
+    super(database, 'display_drivedisc', initialState, 'display_drivedisc')
   }
-  override validate(obj: unknown): IDisplayRelic | undefined {
+  override validate(obj: unknown): IDisplayDriveDisc | undefined {
     if (typeof obj !== 'object') return undefined
-    let { filterOption, ascending, sortType, effFilter } = obj as IDisplayRelic
+    let { filterOption, ascending, sortType, effFilter } = obj as IDisplayDriveDisc
 
     if (typeof filterOption !== 'object') filterOption = initialFilterOption()
     else {
       let {
-        relicSetKeys,
+        drivediscSeriesKeys,
         rarity,
         levelLow,
         levelHigh,
-        slotKeys,
+        partitionKeys,
         mainStatKeys,
         substats,
         locations,
@@ -113,35 +113,35 @@ export class DisplayRelicEntry extends DataEntry<
         useMaxRV,
         lines,
       } = filterOption
-      relicSetKeys = validateArr(relicSetKeys, allRelicSetKeys, [])
-      rarity = validateArr(rarity, allRelicRarityKeys)
+      drivediscSeriesKeys = validateArr(drivediscSeriesKeys, allDriveDiscSeriesKeys, [])
+      rarity = validateArr(rarity, allDriveDiscRarityKeys)
 
       if (typeof levelLow !== 'number') levelLow = 0
       else levelLow = clamp(levelLow, 0, 15)
       if (typeof levelHigh !== 'number') levelHigh = 0
       else levelHigh = clamp(levelHigh, 0, 15)
 
-      slotKeys = validateArr(slotKeys, allRelicSlotKeys)
+      partitionKeys = validateArr(partitionKeys, allDriveDiscPartitionKeys)
       mainStatKeys = validateArr(mainStatKeys, mainStatKeys, [])
-      substats = validateArr(substats, allRelicSubStatKeys, [])
+      substats = validateArr(substats, allDriveDiscSubStatKeys, [])
       locations = validateArr(locations, allLocationKeys, [])
       if (typeof showEquipped !== 'boolean') showEquipped = true
       if (typeof showInventory !== 'boolean') showInventory = true
       locked = validateArr(locked, ['locked', 'unlocked'])
 
       if (typeof rvLow !== 'number') rvLow = 0
-      if (typeof rvHigh !== 'number') rvHigh = 900 // TODO: Figure out RVs for SRO
+      if (typeof rvHigh !== 'number') rvHigh = 900 // TODO: Figure out RVs for ZZZO
 
       if (typeof useMaxRV !== 'boolean') useMaxRV = false
 
       lines = validateArr(lines, [1, 2, 3, 4])
 
       filterOption = {
-        relicSetKeys,
+        drivediscSeriesKeys,
         rarity,
         levelLow,
         levelHigh,
-        slotKeys,
+        partitionKeys,
         mainStatKeys,
         substats,
         locations,
@@ -156,21 +156,21 @@ export class DisplayRelicEntry extends DataEntry<
     }
 
     if (typeof ascending !== 'boolean') ascending = false
-    if (!relicSortKeys.includes(sortType)) sortType = relicSortKeys[0]
+    if (!drivediscSortKeys.includes(sortType)) sortType = drivediscSortKeys[0]
 
-    effFilter = validateArr(effFilter, allRelicSubStatKeys)
+    effFilter = validateArr(effFilter, allDriveDiscSubStatKeys)
 
     return {
       filterOption,
       ascending,
       sortType,
       effFilter,
-    } as IDisplayRelic
+    } as IDisplayDriveDisc
   }
   override set(
     value:
-      | Partial<IDisplayRelic>
-      | ((v: IDisplayRelic) => Partial<IDisplayRelic> | void)
+      | Partial<IDisplayDriveDisc>
+      | ((v: IDisplayDriveDisc) => Partial<IDisplayDriveDisc> | void)
       | { action: 'reset' }
   ): boolean {
     if ('action' in value) {
