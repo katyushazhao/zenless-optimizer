@@ -70,7 +70,7 @@ export class AgentDataManager extends DataManager<
         : objKeyMap(
             allDriveDiscPartitionKeys,
             (sk) =>
-              Object.values(this.database.drivediscs?.data ?? {}).find(
+              Object.values(this.database.driveDiscs?.data ?? {}).find(
                 (r) => r?.location === id && r.partition === sk
               )?.id ?? ''
           ),
