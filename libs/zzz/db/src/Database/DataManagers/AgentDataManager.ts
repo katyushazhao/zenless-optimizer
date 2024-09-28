@@ -9,7 +9,7 @@ import type {
   IAgent,
   IZZZObjectDescription,
 } from '@genshin-optimizer/zzz/zzzod'
-import { validateLevelAsc } from '@genshin-optimizer/zzz/util'
+import { validateLevelPromotion } from '@genshin-optimizer/zzz/util'
 import type { ICachedAgent, IZZZoDatabase } from '../../Interfaces'
 import { ZZZoSource } from '../../Interfaces'
 import { DataManager } from '../DataManager'
@@ -39,7 +39,7 @@ export class AgentDataManager extends DataManager<
 
     if (typeof mindscape !== 'number' && mindscape < 0 && mindscape > 6) mindscape = 0
 
-    const { level, promotion } = validateLevelAsc(rawLevel, rawPromotion)
+    const { level, promotion } = validateLevelPromotion(rawLevel, rawPromotion)
 
     basic = typeof basic !== 'number' ? 1 : clamp(basic, 1, 12)
     dodge = typeof dodge !== 'number' ? 1 : clamp(dodge, 1, 12)

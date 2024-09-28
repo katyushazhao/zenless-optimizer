@@ -8,7 +8,7 @@ import type {
   IWEngine,
   IZZZObjectDescription,
 } from '@genshin-optimizer/zzz/zzzod'
-import { validateLevelAsc } from '@genshin-optimizer/zzz/util'
+import { validateLevelPromotion } from '@genshin-optimizer/zzz/util'
 import type {
   ICachedAgent,
   ICachedWEngine,
@@ -242,7 +242,7 @@ export function validateWEngine(obj: unknown = {}): IWEngine | undefined {
 
   if (!allWEngineKeys.includes(key)) return undefined
   if (rawLevel > wEngineMaxLevel) return undefined
-  const { level, promotion } = validateLevelAsc(rawLevel, rawPromotion)
+  const { level, promotion } = validateLevelPromotion(rawLevel, rawPromotion)
   if (typeof upgrade !== 'number' || upgrade < 1 || upgrade > 5)
     upgrade = 1
   if (!location || !agentKeys.includes(location)) location = ''
