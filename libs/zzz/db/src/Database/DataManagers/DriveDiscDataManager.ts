@@ -21,7 +21,7 @@ import type {
 } from '@genshin-optimizer/zzz/zzzod'
 import {
   getDriveDiscMainStatVal,
-  getSubStatRange,
+  getSubstatRange,
 } from '@genshin-optimizer/zzz/util'
 import type {
   ICachedDriveDisc,
@@ -500,7 +500,7 @@ function parseSubStats(
         value = key.endsWith('_')
           ? Math.round(value * 1000) / 1000
           : Math.round(value)
-        const { low, high } = getSubStatRange(rarity, key)
+        const { low, high } = getSubstatRange(rarity, key)
         value = clamp(value, allowZeroSub ? 0 : low, high)
       } else value = 0
       return { key, value }
