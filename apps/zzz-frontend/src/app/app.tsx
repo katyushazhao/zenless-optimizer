@@ -1,6 +1,6 @@
 import { ScrollTop } from '@genshin-optimizer/common/ui'
 // import '@genshin-optimizer/zzz/i18n' // import to load translations
-// import { theme } from '@genshin-optimizer/zzz/theme'
+import { theme } from '@genshin-optimizer/zzz/theme'
 import { CharacterProvider, DatabaseProvider } from '@genshin-optimizer/zzz/ui'
 import {
   Box,
@@ -30,7 +30,7 @@ export default function App() {
   return (
     <StyledEngineProvider injectFirst>
       {/* https://mui.com/guides/interoperability/#css-injection-order-2 */}
-      {/* <ThemeProvider theme={theme}> */}
+      <ThemeProvider theme={theme}>
         <CssBaseline enableColorScheme />
         <DatabaseProvider>
           <CharacterProvider>
@@ -40,7 +40,7 @@ export default function App() {
             </HashRouter>
           </CharacterProvider>
         </DatabaseProvider>
-      {/* </ThemeProvider> */}
+      </ThemeProvider>
     </StyledEngineProvider>
   )
 }
