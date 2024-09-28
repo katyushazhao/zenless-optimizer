@@ -1,16 +1,16 @@
 import { validateArr } from '@genshin-optimizer/common/util'
 import type {
-  ElementalTypeKey,
-  PathKey,
+  AnomalyTypeKey,
+  SpecialtyKey,
   RarityKey,
-} from '@genshin-optimizer/sr/consts'
+} from '@genshin-optimizer/zzz/consts'
 import {
-  allElementalTypeKeys,
-  allPathKeys,
+  allAnomalyTypeKeys,
+  allSpecialtyKeys,
   allRarityKeys,
-} from '@genshin-optimizer/sr/consts'
+} from '@genshin-optimizer/zzz/consts'
 import { DataEntry } from '../DataEntry'
-import type { SroDatabase } from '../Database'
+import type { ZZZoDatabase } from '../Database'
 
 export const characterSortKeys = [
   'new',
@@ -24,16 +24,16 @@ export type CharacterSortKey = (typeof characterSortKeys)[number]
 export interface IDisplayCharacterEntry {
   sortType: CharacterSortKey
   ascending: boolean
-  path: PathKey[]
-  elementalType: ElementalTypeKey[]
+  specialty: SpecialtyKey[]
+  anomalyType: AnomalyTypeKey[]
   rarity: RarityKey[]
 }
 
 const initialState = (): IDisplayCharacterEntry => ({
   sortType: 'level',
   ascending: false,
-  path: [...allPathKeys],
-  elementalType: [...allElementalTypeKeys],
+  specialty: [...allSpecialtyKeys],
+  anomalyType: [...allAnomalyTypeKeys],
   rarity: [...allRarityKeys],
 })
 
@@ -43,26 +43,26 @@ export class DisplayCharacterEntry extends DataEntry<
   IDisplayCharacterEntry,
   IDisplayCharacterEntry
 > {
-  constructor(database: SroDatabase) {
+  constructor(database: ZZZoDatabase) {
     super(database, 'display_character', initialState, 'display_character')
   }
   override validate(obj: any): IDisplayCharacterEntry | undefined {
     if (typeof obj !== 'object') return undefined
-    let { sortType, ascending, path, elementalType, rarity } = obj
+    let { sortType, ascending, specialty, anomalyType, rarity } = obj
 
     //Disallow sorting by "new" explicitly.
     if (sortType === 'new' || !characterSortKeys.includes(sortType))
       sortType = 'level'
     if (typeof ascending !== 'boolean') ascending = false
-    path = validateArr(path, allPathKeys)
-    elementalType = validateArr(elementalType, allElementalTypeKeys)
+    specialty = validateArr(specialty, allSpecialtyKeys)
+    anomalyType = validateArr(anomalyType, allAnomalyTypeKeys)
     rarity = validateArr(rarity, allRarityKeys)
 
     const data: IDisplayCharacterEntry = {
       sortType,
       ascending,
-      path,
-      elementalType,
+      specialty,
+      anomalyType,
       rarity,
     }
     return data
