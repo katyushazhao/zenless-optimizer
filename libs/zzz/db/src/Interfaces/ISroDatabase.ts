@@ -1,12 +1,12 @@
-import { type ISrObjectDescription } from '@genshin-optimizer/sr/srod'
+import { type IZZZObjectDescription } from '@genshin-optimizer/zzz/zzzod'
 
-export const SroSource = 'Star Rail Optimizer' as const
-export const SroFormat = 'SRO' as const
+export const ZZZoSource = 'Zenless Zone Zero Optimizer' as const
+export const ZZZoFormat = 'ZZZO' as const
 
-export interface ISroDatabase extends ISrObjectDescription {
+export interface IZZZoDatabase extends IZZZObjectDescription {
   version: 1
   dbVersion: number
-  source: typeof SroSource
+  source: typeof ZZZoSource
   // buildSettings?: Array<BuildSetting & { id: string }>
-  [sroSettingsKey: string]: unknown
+  [zzzoSettingsKey: string]: unknown
 }
