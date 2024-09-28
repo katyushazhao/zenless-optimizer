@@ -157,6 +157,7 @@
       ],
       "@genshin-optimizer/zzz/consts": ["libs/zzz/consts/src/index.ts"],
       "@genshin-optimizer/zzz/db": ["libs/zzz/db/src/index.ts"],
+      "@genshin-optimizer/zzz/i18n": ["libs/zzz/i18n/src/index.ts"],
       "@genshin-optimizer/zzz/page-settings": [
         "libs/zzz/page-settings/src/index.tsx"
       ],
