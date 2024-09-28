@@ -1,6 +1,9 @@
 {
   "extends": ["plugin:@nx/react", "../../../.eslintrc.json"],
   "ignorePatterns": ["!**/*"],
+  "parserOptions": {
+    "project": "libs/zzz/ui/tsconfig.eslint.json"
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -14,8 +17,5 @@
       "files": ["*.js", "*.jsx"],
       "rules": {}
     }
-  ],
-  "parserOptions": {
-    "project": "libs/zzz/ui/tsconfig.eslint.json"
-  }
+  ]
 }
