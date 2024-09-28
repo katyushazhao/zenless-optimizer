@@ -157,7 +157,7 @@
       ],
       "@genshin-optimizer/zzz/consts": ["libs/zzz/consts/src/index.ts"],
       "@genshin-optimizer/zzz/svgicons": ["libs/zzz/svgicons/src/index.ts"],
-      "@genshin-optimizer/zzz/ui": ["libs/zzz/ui/src/index.ts"],
+      "@genshin-optimizer/zzz/ui": ["libs/zzz/ui/src/index.tsx"],
       "@genshin-optimizer/zzz/zzzod": ["libs/zzz/zzzod/src/index.ts"]
     }
   },
