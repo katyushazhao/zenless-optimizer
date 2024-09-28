@@ -1,7 +1,7 @@
 import { ScrollTop } from '@genshin-optimizer/common/ui'
 // import '@genshin-optimizer/zzz/i18n' // import to load translations
 // import { theme } from '@genshin-optimizer/zzz/theme'
-// import { CharacterProvider, DatabaseProvider } from '@genshin-optimizer/zzz/ui'
+import { CharacterProvider, DatabaseProvider } from '@genshin-optimizer/zzz/ui'
 import {
   Box,
   Container,
@@ -32,14 +32,14 @@ export default function App() {
       {/* https://mui.com/guides/interoperability/#css-injection-order-2 */}
       {/* <ThemeProvider theme={theme}> */}
         <CssBaseline enableColorScheme />
-        {/* <DatabaseProvider>
-          <CharacterProvider> */}
+        <DatabaseProvider>
+          <CharacterProvider>
             <HashRouter basename="/">
               <Content />
               <ScrollTop />
             </HashRouter>
-          {/* </CharacterProvider>
-        </DatabaseProvider> */}
+          </CharacterProvider>
+        </DatabaseProvider>
       {/* </ThemeProvider> */}
     </StyledEngineProvider>
   )
@@ -72,8 +72,8 @@ function Content() {
             <Route path="/teams/*">
               <Route index element={<PageTeams />} />
               <Route path=":teamId/*" element={<PageTeam />} />
-            </Route>*/
-            <Route path="/settings" element={<PageSettings />} /> }
+            </Route>*/}
+            <Route path="/settings" element={<PageSettings />} />
           </Routes>
         </Suspense>
       </Container>
